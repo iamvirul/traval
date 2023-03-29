@@ -1,6 +1,6 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
+
 
 function App() {
   const location = useLocation();
