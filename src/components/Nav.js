@@ -1,18 +1,28 @@
 import { useState } from "react";
 import "../components/Navbar.css";
 
-function Navbar() {
-    var [click, setClick] = useState(false);
-    function handleClick() {
-        click = false ? setClick(true) : setClick(false);
-      }
+function NavbarCom() {
+  let [click, setClick] = useState(false);
+
+  function handleClick() {
+    // eslint-disable-next-line
+    click == false ? setClick(true) : setClick(false);
+  }
   return (
     <nav className="navbarItems">
       <h1 className="navbar-logo">TripVila</h1>
       <div className="menu-icons">
-        <i onClick={handleClick} className={click = !false ? "fas fa-times":"fas fa-bars"}></i>
+        <div onClick={handleClick}>
+         {/* eslint-disable-next-line */}
+          {click == true ? (
+            <i className="fas fa-times"></i>
+          ) : (
+            <i className="fas fa-bars"></i>
+          )}
+        </div>
       </div>
-      <ul className="nav-menu">
+         {/* eslint-disable-next-line */}
+      <ul className={click == false ?"nav-menu" : "nav-menu-active"}>
         <li>
           <a className="nav-link" href="/">
             <i class="fa-solid fa-house-user"></i> Home
@@ -33,10 +43,11 @@ function Navbar() {
             <i class="fa-solid fa-address-book"></i> Contact
           </a>
         </li>
-        <button className=""value={click} >Sign In</button>
+        <a className="button" href="/">Sign In</a>
+
       </ul>
     </nav>
   );
 }
 
-export default Navbar;
+export default NavbarCom;
