@@ -1,5 +1,6 @@
 import Hero from "../components/Hero";
 import NavbarCom from "../components/Nav";
+import Footer from "../components/Footer";
 function Contact (){
     return(
         <>
@@ -11,6 +12,8 @@ function Contact (){
      title = "Contact"
      h1Cname = "aboutTitel"
      />
+      <Footer/>
+
        </>
 
 

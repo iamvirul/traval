@@ -1,5 +1,6 @@
 import Hero from "../components/Hero";
 import NavbarCom from "../components/Nav";
+import Footer from "../components/Footer";
 import "../components/Herocss.css";
 
 function About (){
@@ -13,8 +14,8 @@ function About (){
       title = "About"
       h1Cname = "aboutTitel"
       />
+      <Footer/>
         </>
-
     );
 }
 

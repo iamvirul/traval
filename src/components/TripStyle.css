@@ -14,6 +14,7 @@
     font-family: 'Poppins', sans-serif;
     height: fit-content;
 
+
 }
 .t-card{
     margin-left: 1%;
@@ -52,9 +53,10 @@ padding: .9rem 0 .2rem 0;
     background-color: rgb(0, 0, 0);
     text-decoration: none;
     color: rgb(255, 255, 255);
+    transition: 0.3s ease-in-out;
 }
 .t-card a:hover{
-    background-color: rgb(98, 98, 98);
+    background-color: #01959a;
     color: rgb(0, 0, 0);
 
 }
