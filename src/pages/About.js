@@ -2,6 +2,7 @@ import Hero from "../components/Hero";
 import NavbarCom from "../components/Nav";
 import Footer from "../components/Footer";
 import "../components/Herocss.css";
+import AboutUs from "../components/AboutUs";
 
 function About (){
     return(
@@ -14,6 +15,7 @@ function About (){
       title = "About"
       h1Cname = "aboutTitel"
       />
+      <AboutUs/>
       <Footer/>
         </>
     );

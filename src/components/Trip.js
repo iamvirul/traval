@@ -1,10 +1,14 @@
 import "../components/TripStyle.css";
 import TripData from "./TripData";
+import { AnimationOnScroll } from "react-animation-on-scroll";
+
 function Trip() {
   return (
     <div className="trip">
+      <AnimationOnScroll animateIn="animate__fadeInLeftBig">
       <h1>Some Places</h1>
       <p>You can discover unique destinations using Google Maps.</p>
+      </AnimationOnScroll>
       <div className="trip-card">
         <TripData
           img={

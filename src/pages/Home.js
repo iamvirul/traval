@@ -3,7 +3,6 @@ import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import NavbarCom from "../components/Nav";
 import Trip from "../components/Trip";
-
 function Home() {
   return (
     <>

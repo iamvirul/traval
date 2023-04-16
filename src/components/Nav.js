@@ -43,7 +43,7 @@ function NavbarCom() {
             <i class="fa-solid fa-address-book"></i> Contact
           </a>
         </li>
-        <a className="button" href="/">Sign In</a>
+        <a className="button" href="/signIn">Sign In</a>
 
       </ul>
     </nav>
