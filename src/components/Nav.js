@@ -2,6 +2,9 @@ import { useState } from "react";
 import "../components/Navbar.css";
 
 function NavbarCom() {
+  const sessionValue = localStorage.getItem("user");
+  const userObj = JSON.parse(sessionValue);
+  var name = userObj.name;
   let [click, setClick] = useState(false);
 
   function handleClick() {
@@ -13,7 +16,7 @@ function NavbarCom() {
       <h1 className="navbar-logo">TripVila</h1>
       <div className="menu-icons">
         <div onClick={handleClick}>
-         {/* eslint-disable-next-line */}
+          {/* eslint-disable-next-line */}
           {click == true ? (
             <i className="fas fa-times"></i>
           ) : (
@@ -21,8 +24,8 @@ function NavbarCom() {
           )}
         </div>
       </div>
-         {/* eslint-disable-next-line */}
-      <ul className={click == false ?"nav-menu" : "nav-menu-active"}>
+      {/* eslint-disable-next-line */}
+      <ul className={click == false ? "nav-menu" : "nav-menu-active"}>
         <li>
           <a className="nav-link" href="/">
             <i class="fa-solid fa-house-user"></i> Home
@@ -43,8 +46,15 @@ function NavbarCom() {
             <i class="fa-solid fa-address-book"></i> Contact
           </a>
         </li>
-        <a className="button" href="/signIn">Sign In</a>
-
+        {name == "" ? (
+          <a className="button" href="/signIn">
+            Sign In
+          </a>
+        ) : (
+          <a className="button" href="/profile">
+            {name}
+          </a>
+        )}
       </ul>
     </nav>
   );

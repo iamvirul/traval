@@ -3,7 +3,6 @@ import NavbarCom from "../components/Nav";
 import "../css/SignIncss.css";
 import $ from "jquery";
 export default function SignIn() {
-    
   //! signIn function to connect into php backend using AJAX
 
   function signIn() {
@@ -20,13 +19,79 @@ export default function SignIn() {
       contentType: false,
       processData: false,
       success: function (response) {
-        alert(response);
+        localStorage.setItem("user", response);
+        window.location("/service")
       },
       error: function (error) {
         alert(error);
       },
     });
   }
+
+  //! signUp function to save user in database
+
+  function signUp() {
+    var signUpEmail = document.getElementById("signUpEmail").value;
+    var signUpName = document.getElementById("signUpName").value;
+    var signUpPassword = document.getElementById("signUpPassword").value;
+    var signUpNormalPassword = document.getElementById(
+      "signUpNormalPassword"
+    ).value;
+
+    //! emali validation function start
+
+    function validateEmail(email) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(email);
+    }
+
+    //! email validation function end !
+
+    if (signUpName === "") {
+      alert("Type Your Name First...");
+    } else if (signUpEmail === "") {
+      alert("Type Your Email...");
+    } else if (!validateEmail(signUpEmail)) {
+      alert("Invalid email...");
+    } else if (signUpNormalPassword === "") {
+      alert("Type Your Password...");
+    } else if (
+      signUpNormalPassword.length < 8 ||
+      signUpNormalPassword.length > 20
+    ) {
+      alert("Password must be between 8 to 20 characters");
+    } else if (signUpPassword === "") {
+      alert("Conform Your Password...");
+    } else if (signUpNormalPassword !== signUpPassword) {
+      alert(
+        "Your Conform Password doesn't match to your password please check again..."
+      );
+    } else {
+      var form = new FormData();
+      form.append("name", signUpName);
+      form.append("email", signUpEmail);
+      form.append("password", signUpPassword);
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = () => {
+        if (xhttp.readyState === 4 && xhttp.status === 200) {
+          if (xhttp.responseText === "done") {
+            var signup = document.getElementById("SignUpform");
+            signup.style.display = "none";
+            var signIn = document.getElementById("logingform");
+            signIn.style.display = "flex";
+          } else {
+            alert(xhttp.responseText);
+          }
+        }
+      };
+      xhttp.open("POST", "http://localhost/tripVill/signUp.php", true);
+      xhttp.send(form);
+    }
+  }
+
+  //! UI designe
+
   return (
     <div>
       <NavbarCom />
@@ -66,10 +131,20 @@ export default function SignIn() {
         <div className="SignUpform" id="SignUpform">
           <span className="tracking-out-contract">Sign Up</span>
           <div className="signUp-input-container">
-            <input placeholder="Name" type="text" required />
-            <input placeholder="Email" type="password" required />
-            <input placeholder="Password" type="password" required />
-            <input placeholder="Conform Password" type="password" required />
+            <input placeholder="Name" id="signUpName" type="text" required />
+            <input placeholder="Email" id="signUpEmail" type="text" required />
+            <input
+              placeholder="Password"
+              type="password"
+              id="signUpNormalPassword"
+              required
+            />
+            <input
+              placeholder="Conform Password"
+              id="signUpPassword"
+              type="password"
+              required
+            />
           </div>
           <div className="button-container">
             <button
@@ -84,7 +159,9 @@ export default function SignIn() {
             >
               Log In
             </button>
-            <button className="signup">Sign Up</button>
+            <button className="signup" onClick={signUp}>
+              Sign Up
+            </button>
           </div>
         </div>
       </div>

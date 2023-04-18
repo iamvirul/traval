@@ -4,6 +4,7 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Service from "./pages/Service";
 import SignIn from "./pages/SignIn";
+import Profile from "./pages/Profile"
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
       <Route path="/service" element={<Service />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/signIn" element={<SignIn />} />
+      <Route path="/profile" element={<Profile />} />
+
     </Routes>
   );
 }
