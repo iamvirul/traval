@@ -2,9 +2,13 @@ import { useState } from "react";
 import "../components/Navbar.css";
 
 function NavbarCom() {
-  const sessionValue = localStorage.getItem("user");
-  const userObj = JSON.parse(sessionValue);
-  var name = userObj.name;
+  if(localStorage.length === 0 ){
+  }else{
+    const sessionValue = localStorage.getItem("user");
+    const userObj = JSON.parse(sessionValue);
+    var name = userObj.name;
+  }
+ 
   let [click, setClick] = useState(false);
 
   function handleClick() {
@@ -46,7 +50,7 @@ function NavbarCom() {
             <i class="fa-solid fa-address-book"></i> Contact
           </a>
         </li>
-        {name == "" ? (
+        {localStorage.length === 0? (
           <a className="button" href="/signIn">
             Sign In
           </a>
