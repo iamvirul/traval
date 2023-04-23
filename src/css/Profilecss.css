@@ -1,0 +1,34 @@
+.container{
+    display: flex;
+
+}
+.profileContainer{
+margin-top: 6.5%;
+width: 100%;
+height: 200px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+.imgContainer{
+    margin-bottom: 10px;
+    height: 100px;
+    width: 100px;
+    background-color: brown;
+    border-radius: 100%;
+}
+.selectbtn{
+    margin-top: 20px;
+    width: 100px;
+    color: white;
+    padding: 5px 10px;
+    background-color: black;
+    border-radius: 10px;
+}
+@media screen and (max-width:750px) {
+.profileContainer{
+margin-top: 26%;
+
+}
+}

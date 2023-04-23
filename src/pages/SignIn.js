@@ -19,8 +19,19 @@ export default function SignIn() {
       contentType: false,
       processData: false,
       success: function (response) {
+        try {
+          var jsonData = JSON.parse(response);
+          // Check if jsonData is a valid JSON object
+          if (typeof jsonData === 'object' && jsonData !== null) {
+            localStorage.setItem("user", response);
+            window.location = "./service"
         localStorage.setItem("user", response);
-        window.location("/service")
+          } else {
+            alert(response);
+          }
+        } catch (error) {
+          alert(response);
+        }
       },
       error: function (error) {
         alert(error);

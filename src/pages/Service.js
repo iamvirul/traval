@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import NavbarCom from "../components/Nav";
+import ServiceDes from "../components/serviceDes";
 function Service (){
     return(
         <>
@@ -12,6 +13,7 @@ function Service (){
      title = "Services"
      h1Cname = "aboutTitel"
      />
+     <ServiceDes/>
      <Footer/>
        </>
 
